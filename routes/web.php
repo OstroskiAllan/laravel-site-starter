@@ -20,3 +20,7 @@ Route::get('/produtos', function(){
 Route::get('/produtos_teste/{id}', function($id){
     return view('product', ['id' => $id ]);
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
